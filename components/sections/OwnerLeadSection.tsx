@@ -12,8 +12,8 @@ export function OwnerLeadSection() {
     >
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1597212618440-806262de4f6b?w=2400&q=80&auto=format&fit=crop"
-          alt="La Koutoubia au lever du soleil, Marrakech, avec les montagnes de l'Atlas en arrière-plan"
+          src="https://images.unsplash.com/photo-1706203644187-a719449587bb?w=2400&q=80&auto=format&fit=crop"
+          alt="La Mosquée Hassan II vue depuis le rivage, bordée par l'océan Atlantique, symbole de Casablanca"
           fill
           loading="lazy"
           sizes="100vw"

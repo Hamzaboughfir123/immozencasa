@@ -7,12 +7,12 @@ const PROPERTY_TYPES = [
   {
     name: "Villa",
     image: "/images/property-types/villa.jpg",
-    alt: "Villa avec piscine et pergola en bois, Marrakech",
+    alt: "Villa avec piscine et pergola en bois, région de Casablanca",
   },
   {
     name: "Appartement",
     image: "/images/property-types/appartement.jpg",
-    alt: "Séjour et salle à manger d'un appartement moderne à Marrakech",
+    alt: "Séjour et salle à manger d'un appartement moderne à Casablanca",
   },
   {
     name: "Riad",
@@ -22,17 +22,17 @@ const PROPERTY_TYPES = [
   {
     name: "Terrain",
     image: "/images/property-types/terrain.jpg",
-    alt: "Terrain vu du ciel dans un quartier de Marrakech",
+    alt: "Terrain vu du ciel dans un quartier résidentiel de Casablanca",
   },
   {
     name: "Commerce",
-    image: "https://images.unsplash.com/photo-1716146755954-4f197a5b6031?w=1200&q=80&auto=format&fit=crop",
-    alt: "Échoppe colorée dans le souk de Marrakech, emplacement commercial typique",
+    image: "https://images.unsplash.com/photo-1759234119876-42e71955ae81?w=1200&q=80&auto=format&fit=crop",
+    alt: "Étal artisanal coloré dans une médina marocaine, emplacement commercial typique",
   },
   {
     name: "Immeuble",
     image: "/images/property-types/immeuble.jpg",
-    alt: "Immeuble résidentiel rose typique de Marrakech",
+    alt: "Toits de Casablanca et minaret au crépuscule, avec la Mosquée Hassan II en arrière-plan",
   },
 ];
 

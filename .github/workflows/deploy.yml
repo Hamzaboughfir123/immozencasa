@@ -1,4 +1,4 @@
-name: Deploy ImmoZen
+name: Deploy ImmoZen Casablanca
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy to VPS
+    name: Deploy Casablanca to VPS
     runs-on: ubuntu-latest
 
     steps:
@@ -20,9 +20,9 @@ jobs:
           script: |
             set -e
 
-            echo "🚀 Déploiement ImmoZen..."
+            echo "🚀 Déploiement ImmoZen Casablanca..."
 
-            cd /var/www/immozen
+            cd /var/www/immozen-casablanca
 
             echo "📥 Récupération du code..."
             git fetch origin main
@@ -35,9 +35,9 @@ jobs:
             npm run build
 
             echo "♻️ Redémarrage PM2..."
-            pm2 restart immozen
+            pm2 restart immozen-casablanca
 
             echo "💾 Sauvegarde PM2..."
             pm2 save
 
-            echo "✅ Déploiement terminé !"
+            echo "✅ Déploiement Casablanca terminé !"

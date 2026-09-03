@@ -1,9 +1,11 @@
+
 name: Deploy ImmoZen Casablanca
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
@@ -11,6 +13,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Check secrets
+        run: |
+          if [ -z "${{ secrets.VPS_HOST }}" ]; then
+            echo "❌ VPS_HOST est vide"
+            exit 1
+          fi
+
+          if [ -z "${{ secrets.VPS_USER }}" ]; then
+            echo "❌ VPS_USER est vide"
+            exit 1
+          fi
+
+          if [ -z "${{ secrets.VPS_SSH_KEY }}" ]; then
+            echo "❌ VPS_SSH_KEY est vide"
+            exit 1
+          fi
+
+          echo "✅ VPS_HOST présent"
+          echo "✅ VPS_USER présent"
+          echo "✅ VPS_SSH_KEY présent"
+
       - name: Deploy via SSH
         uses: appleboy/ssh-action@v1.2.2
         with:
@@ -24,20 +47,13 @@ jobs:
 
             cd /var/www/immozen-casablanca
 
-            echo "📥 Récupération du code..."
             git fetch origin main
             git reset --hard origin/main
 
-            echo "📦 Installation des dépendances..."
             npm ci
-
-            echo "🔨 Build Next.js..."
             npm run build
 
-            echo "♻️ Redémarrage PM2..."
             pm2 restart immozen-casablanca
-
-            echo "💾 Sauvegarde PM2..."
             pm2 save
 
-            echo "✅ Déploiement Casablanca terminé !"
+            echo "✅ Déploiement terminé !"

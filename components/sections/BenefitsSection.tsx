@@ -12,20 +12,20 @@ const BENEFITS = [
   },
   {
     icon: SparkIcon,
-    title: "IA & Technologie",
-    text: "Nos outils nouvelle génération valorisent votre bien et le placent devant les bons acheteurs, plus vite.",
+    title: "Votre bien en lumière",
+    text: "Une présentation qui donne envie et met en valeur chaque atout de votre bien dès le premier regard.",
     highlight: false,
   },
   {
     icon: EyeIcon,
-    title: "Visibilité",
-    text: "Votre bien diffusé massivement, là où se trouvent vraiment vos futurs acquéreurs et locataires.",
+    title: "Les bons acheteurs",
+    text: "Votre annonce gagne en visibilité auprès de personnes réellement prêtes à acheter ou à louer.",
     highlight: false,
   },
   {
     icon: HandshakeIcon,
-    title: "Accompagnement",
-    text: "Un seul interlocuteur, disponible à chaque étape, de la prise de mandat jusqu'à la signature.",
+    title: "À vos côtés",
+    text: "Un accompagnement simple et humain, de la première visite jusqu'à la signature finale.",
     highlight: false,
   },
 ];
@@ -35,14 +35,14 @@ export function BenefitsSection() {
     <section id="pourquoi-immozen" className="bg-white py-10 sm:py-14">
       <Container>
         <SectionHeading
-          eyebrow="La nouvelle référence de l'immobilier au Maroc"
+          eyebrow="Pourquoi les propriétaires nous choisissent"
           title={
             <>
-              L&rsquo;immobilier change.
-              <br className="hidden sm:block" /> Votre agence aussi.
+              Votre bien mérite
+              <br className="hidden sm:block" /> une meilleure histoire.
             </>
           }
-          description="ImmoZen Groupe associe la puissance de son réseau, la technologie et un accompagnement humain à la garantie 0 DH de commission pour vous, propriétaire au Maroc."
+          description="Nous faisons tout pour que votre bien se démarque, trouve le bon acquéreur et vous rapporte davantage, sans commission pour vous, propriétaire."
         />
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

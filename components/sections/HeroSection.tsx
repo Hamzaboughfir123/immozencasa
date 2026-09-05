@@ -16,8 +16,8 @@ export function HeroSection() {
     <section id="accueil" className="relative overflow-hidden bg-brand-ink">
       <div className="absolute inset-0">
         <Image
-          src="/images/hero-casablanca.jpg"
-          alt="La Mosquée Hassan II au bord de l'océan Atlantique, symbole de Casablanca et du patrimoine immobilier haut de gamme"
+          src="/images/property-types/villa.jpg"
+          alt="Villa contemporaine avec piscine et palmiers dans la région de Casablanca"
           fill
           priority
           sizes="100vw"
@@ -29,21 +29,19 @@ export function HeroSection() {
 
       <Container className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-center gap-8 py-10">
         <div className="max-w-3xl lg:max-w-xl xl:max-w-2xl">
-          <span className="mb-4 inline-flex items-center gap-2 rounded-full bg-brand-pistachio/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-brand-pistachio backdrop-blur-sm ring-1 ring-brand-pistachio/30">
+          <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-brand-ink/90 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-brand-pistachio shadow-[0_8px_24px_rgba(16,18,15,0.35)] backdrop-blur-sm ring-2 ring-brand-pistachio/70">
             Agence immobilière nouvelle génération · Maroc
           </span>
 
-          <h1 className="text-balance font-display text-4xl font-medium leading-[1.05] text-white sm:text-5xl lg:text-6xl">
-            Propriétaires,
+          <h1 className="text-balance font-display text-4xl font-medium leading-[1.02] text-white sm:text-5xl lg:text-6xl">
+            Vendez votre bien,
             <br />
-            ne payez plus de{" "}
-            <span className="text-brand-pistachio">commission d&rsquo;agence.</span>
+            sans payer de <span className="text-brand-pistachio">commission.</span>
           </h1>
 
           <p className="mt-5 max-w-xl text-balance text-base leading-relaxed text-white/80 sm:text-lg">
-            Confiez la vente ou la location de votre bien à ImmoZen Groupe.
-            <br className="hidden sm:block" /> 0 DH de commission pour les
-            propriétaires.*
+            Votre projet immobilier accompagné par des experts, avec 0 DH de
+            commission pour les propriétaires.*
             <span className="mt-2 flex items-center gap-2 text-sm font-medium text-white/90">
               <span className="text-brand-pistachio" aria-hidden="true">
                 <LocationIcon />
@@ -65,17 +63,16 @@ export function HeroSection() {
           </div>
         </div>
 
-        <div className="absolute right-[358px] top-[calc(38%-60px)] hidden w-56 -translate-y-1/2 items-center gap-2.5 rounded-2xl border border-brand-pistachio/35 bg-brand-ink/60 p-3 shadow-[0_22px_60px_-20px_rgba(165,210,50,0.75)] backdrop-blur-md lg:flex xl:right-[406px] xl:w-64">
+        <div className="relative mt-1 flex w-full max-w-xs items-center gap-3 self-center rounded-2xl border border-brand-pistachio/35 bg-brand-ink/75 p-4 shadow-[0_22px_60px_-20px_rgba(165,210,50,0.75)] backdrop-blur-md lg:absolute lg:left-1/2 lg:top-[39%] lg:mt-0 lg:w-64 lg:-translate-x-1/2 lg:-translate-y-1/2 xl:w-72">
           <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-pistachio text-brand-ink shadow-[0_0_25px_rgba(165,210,50,0.35)]">
             <CrownIcon />
           </div>
           <div>
-            <strong className="block font-display text-2xl leading-none text-brand-pistachio">
-              300+
+            <strong className="block font-display text-3xl leading-none text-brand-pistachio">
+              0 DH
             </strong>
-            <span className="mt-1 block text-[11px] font-medium leading-snug text-white/90">
-              agences partenaires réunies dans un même réseau, au Maroc et à
-              l&rsquo;international.
+            <span className="mt-1 block text-xs font-medium leading-snug text-white/90">
+              de commission pour les propriétaires.*
             </span>
           </div>
         </div>

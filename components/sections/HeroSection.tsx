@@ -1,15 +1,5 @@
-import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import Image from "next/image";
-
-const PROPERTY_KINDS = [
-  "Appartement",
-  "Villa",
-  "Terrain",
-  "Commerce",
-  "Riad",
-  "Immeuble",
-];
 
 export function HeroSection() {
   return (
@@ -27,83 +17,42 @@ export function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-ink/55 via-brand-ink/5 to-transparent" />
       </div>
 
-      <Container className="relative flex min-h-[calc(100svh-5rem)] flex-col justify-center gap-8 py-10">
-        <div className="max-w-3xl lg:max-w-xl xl:max-w-2xl">
-          <span className="mb-5 inline-flex items-center gap-2 rounded-full bg-brand-ink/90 px-5 py-2.5 text-xs font-bold uppercase tracking-[0.12em] text-brand-pistachio shadow-[0_8px_24px_rgba(16,18,15,0.35)] backdrop-blur-sm ring-2 ring-brand-pistachio/70">
+      <Container className="relative flex min-h-[calc(100svh-5rem)] flex-col items-center justify-between gap-5 py-8 sm:gap-6 sm:py-7 lg:gap-3 lg:py-4">
+        <div className="flex w-full flex-1 flex-col items-center justify-center text-center">
+          <span className="mb-6 inline-flex items-center rounded-full border border-brand-pistachio/80 bg-brand-ink/85 px-4 py-2.5 text-center text-[11px] font-bold uppercase tracking-[0.14em] text-brand-pistachio shadow-[0_8px_24px_rgba(16,18,15,0.35)] backdrop-blur-sm sm:mb-4 sm:px-5 sm:py-2.5 sm:text-xs">
             Agence immobilière nouvelle génération · Maroc
           </span>
 
-          <h1 className="text-balance font-display text-4xl font-medium leading-[1.02] text-white sm:text-5xl lg:text-6xl">
-            Vendez votre bien,
+          <h1 className="max-w-4xl text-balance font-sans text-2xl font-extrabold uppercase leading-[1.02] tracking-[0.01em] text-white sm:text-4xl sm:leading-[0.98] sm:tracking-[0.02em] lg:text-5xl xl:text-6xl">
+            Propriétaires,
             <br />
-            sans payer de <span className="text-brand-pistachio">commission.</span>
+            pourquoi encore
+            <br />
+            <span className="text-brand-pistachio">payer une commission ?</span>
           </h1>
 
-          <p className="mt-5 max-w-xl text-balance text-base leading-relaxed text-white/80 sm:text-lg">
-            Votre projet immobilier accompagné par des experts, avec 0 DH de
-            commission pour les propriétaires.*
-            <span className="mt-2 flex items-center gap-2 text-sm font-medium text-white/90">
-              <span className="text-brand-pistachio" aria-hidden="true">
-                <LocationIcon />
-              </span>
-              <span>
-                <strong className="text-brand-pistachio">Priorité Casablanca</strong>
-                {' · '}Rabat · Marrakech · Tanger · Agadir
-              </span>
-            </span>
-          </p>
+          <div className="my-6 h-px w-3/4 max-w-xl bg-brand-pistachio/70 sm:my-4" />
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-            <Button href="#confier-mon-bien" size="lg">
-              Je confie mon bien à ImmoZen Groupe
-            </Button>
-            <Button href="#simulateur" variant="outline" size="lg">
-              Estimer mon économie
-            </Button>
-          </div>
-        </div>
-
-        <div className="relative mt-1 flex w-full max-w-xs items-center gap-3 self-center rounded-2xl border border-brand-pistachio/35 bg-brand-ink/75 p-4 shadow-[0_22px_60px_-20px_rgba(165,210,50,0.75)] backdrop-blur-md lg:absolute lg:left-1/2 lg:top-[39%] lg:mt-0 lg:w-64 lg:-translate-x-1/2 lg:-translate-y-1/2 xl:w-72">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-pistachio text-brand-ink shadow-[0_0_25px_rgba(165,210,50,0.35)]">
-            <CrownIcon />
-          </div>
-          <div>
-            <strong className="block font-display text-3xl leading-none text-brand-pistachio">
+          <div className="relative flex w-full max-w-sm flex-col items-center rounded-[2rem] border-2 border-brand-pistachio bg-brand-ink/90 px-6 py-8 shadow-[0_24px_70px_-18px_rgba(165,210,50,0.85)] backdrop-blur-md sm:max-w-md sm:px-10 sm:py-5">
+            <div className="-mt-12 mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-brand-pistachio text-brand-ink shadow-[0_0_30px_rgba(165,210,50,0.7)]">
+              <CrownIcon />
+            </div>
+            <span className="text-base font-semibold text-white sm:text-lg">Avec ImmoZen Groupe,</span>
+            <strong className="font-sans text-7xl font-extrabold leading-none text-brand-pistachio sm:text-7xl">
               0 DH
             </strong>
-            <span className="mt-1 block text-xs font-medium leading-snug text-white/90">
-              de commission pour les propriétaires.*
+            <span className="text-sm font-semibold text-white sm:text-base">
+              de commission propriétaire<span className="text-brand-pistachio">*</span>
             </span>
           </div>
+
+          <p className="mt-5 text-sm font-medium text-white/90 sm:mt-3 sm:text-base">
+            <strong className="text-brand-pistachio">Casablanca</strong>
+          </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-white/15 pt-6 text-sm text-white/60">
-          {PROPERTY_KINDS.map((kind, i) => (
-            <span key={kind} className="flex items-center gap-3">
-              {kind}
-              {i < PROPERTY_KINDS.length - 1 ? (
-                <span className="h-1 w-1 rounded-full bg-white/30" aria-hidden="true" />
-              ) : null}
-            </span>
-          ))}
-        </div>
       </Container>
     </section>
-  );
-}
-
-function LocationIcon() {
-  return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="10" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
   );
 }
 
@@ -121,3 +70,6 @@ function CrownIcon() {
     </svg>
   );
 }
+
+
+

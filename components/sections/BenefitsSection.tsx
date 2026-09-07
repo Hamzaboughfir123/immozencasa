@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/Button";
 import { Reveal } from "@/components/ui/Reveal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import Image from "next/image";
 
 const BENEFITS = [
   {
@@ -32,10 +33,32 @@ const BENEFITS = [
 
 export function BenefitsSection() {
   return (
-    <section id="pourquoi-immozen" className="bg-white py-10 sm:py-14">
-      <Container>
+    <section id="pourquoi-immozen" className="relative overflow-hidden bg-brand-beige/35 py-4 sm:py-6">
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-48 overflow-hidden opacity-[0.32]">
+        <Image
+          src="/images/property-types/villa.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="h-full w-full object-cover object-center"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-beige/80 to-brand-beige/35" />
+      </div>
+
+      <div className="pointer-events-none absolute right-[8%] top-8 hidden h-44 w-44 rotate-[-5deg] items-center justify-center rounded-full border-[3px] border-brand-forest/80 bg-white/45 text-center text-brand-forest shadow-[0_12px_35px_rgba(6,115,61,0.12)] backdrop-blur-[2px] lg:flex xl:right-[14%]">
+        <div>
+          <strong className="block font-display text-6xl font-bold leading-none">0 DH</strong>
+          <span className="mt-1 block -rotate-2 text-sm font-extrabold uppercase leading-tight">
+            de commission
+            <br />
+            propriétaire<span className="text-brand-pistachio">*</span>
+          </span>
+        </div>
+      </div>
+
+      <Container className="relative">
         <SectionHeading
-          eyebrow="Pourquoi les propriétaires nous choisissent"
+          eyebrow="Propriétaires au Maroc"
           title={
             <>
               Votre bien mérite
@@ -43,16 +66,17 @@ export function BenefitsSection() {
             </>
           }
           description="Nous faisons tout pour que votre bien se démarque, trouve le bon acquéreur et vous rapporte davantage, sans commission pour vous, propriétaire."
+          className="max-w-4xl"
         />
 
-        <div className="mt-5 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-3 grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-4">
           {BENEFITS.map((benefit, index) => (
             <Reveal key={benefit.title} delay={index * 80}>
               <div
-                className={`group relative h-full overflow-visible rounded-3xl p-5 transition-all duration-300 ${
+                className={`group relative min-w-0 h-full overflow-visible rounded-3xl p-3 transition-all duration-300 ${
                   benefit.highlight
-                    ? "bg-brand-forest text-white shadow-[0_20px_60px_-20px_rgba(6,115,61,0.5)]"
-                    : "bg-brand-beige/60 text-brand-ink hover:bg-brand-beige hover:-translate-y-1 hover:shadow-[0_20px_45px_-24px_rgba(16,18,15,0.35)]"
+                    ? "bg-brand-forest text-white shadow-[0_20px_60px_-20px_rgba(6,115,61,0.5)] sm:p-4"
+                    : "bg-white/85 text-brand-ink ring-1 ring-brand-forest/10 backdrop-blur-sm hover:-translate-y-1 hover:shadow-[0_20px_45px_-24px_rgba(16,18,15,0.35)]"
                 }`}
               >
                 {benefit.highlight ? (
@@ -63,7 +87,7 @@ export function BenefitsSection() {
                   </span>
                 ) : null}
                 <div
-                  className={`mb-3 flex h-10 w-10 items-center justify-center rounded-2xl ${
+                  className={`mb-2 flex h-9 w-9 items-center justify-center rounded-2xl ${
                     benefit.highlight
                       ? "bg-brand-pistachio text-brand-ink"
                       : "bg-white text-brand-forest"
@@ -71,11 +95,11 @@ export function BenefitsSection() {
                 >
                   <benefit.icon />
                 </div>
-                <h3 className="font-display text-lg font-semibold">
+                <h3 className="font-display text-base font-semibold sm:text-lg">
                   {benefit.title}
                 </h3>
                 <p
-                  className={`mt-2 text-sm leading-snug ${
+                  className={`mt-1.5 text-xs leading-snug sm:text-[13px] ${
                     benefit.highlight ? "text-white/85" : "text-brand-ink/65"
                   }`}
                 >
@@ -86,13 +110,24 @@ export function BenefitsSection() {
           ))}
         </div>
 
-        <Reveal className="mt-6 flex justify-center" delay={320}>
-          <Button href="#confier-mon-bien" size="lg">
-            Je confie mon bien à ImmoZen Groupe
-          </Button>
-        </Reveal>
+        <div className="mt-3 flex justify-center">
+          <Reveal delay={320}>
+            <Button href="#confier-mon-bien" size="md" className="px-6 sm:px-8">
+              Je confie mon bien à ImmoZen Groupe
+              <ArrowIcon />
+            </Button>
+          </Reveal>
+        </div>
       </Container>
     </section>
+  );
+}
+
+function ArrowIcon() {
+  return (
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
   );
 }
 

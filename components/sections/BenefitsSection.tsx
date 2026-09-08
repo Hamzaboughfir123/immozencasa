@@ -33,7 +33,7 @@ const BENEFITS = [
 
 export function BenefitsSection() {
   return (
-    <section id="pourquoi-immozen" className="relative overflow-hidden bg-brand-beige/35 py-4 sm:py-6">
+    <section id="pourquoi-immozen" className="relative overflow-hidden bg-brand-beige/35 py-3 sm:py-5">
       <div className="pointer-events-none absolute inset-x-0 top-0 h-48 overflow-hidden opacity-[0.32]">
         <Image
           src="/images/property-types/villa.jpg"
@@ -66,7 +66,7 @@ export function BenefitsSection() {
             </>
           }
           description="Nous faisons tout pour que votre bien se démarque, trouve le bon acquéreur et vous rapporte davantage, sans commission pour vous, propriétaire."
-          className="max-w-4xl"
+          className="max-w-4xl gap-3"
         />
 
         <div className="mt-3 grid min-w-0 gap-3 sm:grid-cols-2 lg:grid-cols-4">
@@ -110,9 +110,28 @@ export function BenefitsSection() {
           ))}
         </div>
 
-        <div className="mt-3 flex justify-center">
+        <div className="mt-4 flex flex-col items-center gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-sm font-medium text-brand-anthracite/80 lg:justify-start">
+            <span className="flex items-center gap-2">
+              <ShieldIcon />
+              Sûr et transparent
+            </span>
+            <span className="flex items-center gap-2">
+              <ClockIcon />
+              Gain de temps
+            </span>
+            <span className="flex items-center gap-2">
+              <ChartIcon />
+              Meilleure rentabilité
+            </span>
+          </div>
+
           <Reveal delay={320}>
-            <Button href="#confier-mon-bien" size="md" className="px-6 sm:px-8">
+            <Button
+              href="#confier-mon-bien"
+              size="lg"
+              className="w-full px-6 sm:w-auto sm:px-10"
+            >
               Je confie mon bien à ImmoZen Groupe
               <ArrowIcon />
             </Button>
@@ -127,6 +146,38 @@ function ArrowIcon() {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
       <path d="M5 12h13M13 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ShieldIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-brand-forest">
+      <path
+        d="M12 3l8 3v5c0 4.8-3.2 8.3-8 10-4.8-1.7-8-5.2-8-10V6l8-3z"
+        fill="currentColor"
+        fillOpacity="0.16"
+        stroke="currentColor"
+        strokeWidth="1.7"
+      />
+      <path d="M8.5 12l2.2 2.2 4.8-4.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ClockIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-brand-forest">
+      <circle cx="12" cy="12" r="8.5" fill="currentColor" fillOpacity="0.12" stroke="currentColor" strokeWidth="1.7" />
+      <path d="M12 7.5v5l3 1.8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function ChartIcon() {
+  return (
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true" className="text-brand-forest">
+      <path d="M4 19V13h4v6H4zm6 0V8h4v11h-4zm6 0V4h4v15h-4z" fill="currentColor" />
     </svg>
   );
 }

@@ -96,13 +96,13 @@ export function SavingsCalculator() {
       {/* Result */}
       <div className="flex flex-col justify-between gap-5 bg-brand-forest p-6 text-white sm:p-8">
         <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between text-sm text-white/70">
-            <span>Commission traditionnelle estimée ({rate.toString().replace(".", ",")} %)</span>
-            <span className="font-semibold text-white">{formatMAD(traditionalCommission)}</span>
+          <div className="flex min-w-0 items-start justify-between gap-3 text-sm text-white/70">
+            <span className="min-w-0">Commission traditionnelle estimée ({rate.toString().replace(".", ",")} %)</span>
+            <span className="shrink-0 font-semibold text-white">{formatMAD(traditionalCommission)}</span>
           </div>
-          <div className="flex items-center justify-between text-sm text-white/70">
-            <span>Commission propriétaire ImmoZen Groupe</span>
-            <span className="font-semibold text-brand-pistachio">0 DH*</span>
+          <div className="flex min-w-0 items-start justify-between gap-3 text-sm text-white/70">
+            <span className="min-w-0">Commission propriétaire ImmoZen Groupe</span>
+            <span className="shrink-0 font-semibold text-brand-pistachio">0 DH*</span>
           </div>
           <div className="h-px w-full bg-white/15" />
           <div>

@@ -37,7 +37,6 @@ export function Navbar() {
             alt={SITE_NAME}
             width={175}
             height={60}
-            priority
             className="h-11 w-auto rounded-lg lg:h-10"
           />
         </a>

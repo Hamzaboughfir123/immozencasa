@@ -5,7 +5,7 @@
   "engines": {
     "node": ">=22 <25"
   },
-  "description": "ImmoZen - Agence immobilière nouvelle génération au Maroc. Site vitrine premium.",
+  "description": "ImmoZen Groupe - Agence immobilière nouvelle génération à Casablanca. Site vitrine premium.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

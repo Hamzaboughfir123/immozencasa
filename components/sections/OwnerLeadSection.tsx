@@ -12,7 +12,7 @@ export function OwnerLeadSection() {
     >
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1706203644187-a719449587bb?w=2400&q=80&auto=format&fit=crop"
+          src="/images/hero-casablanca.jpg"
           alt="La Mosquée Hassan II vue depuis le rivage, bordée par l'océan Atlantique, symbole de Casablanca"
           fill
           loading="lazy"

@@ -20,11 +20,11 @@ export function HeroSection() {
       <Container className="relative flex min-h-[calc(100svh-5rem)] flex-col items-center justify-between gap-5 py-8 sm:gap-6 sm:py-7 lg:gap-3 lg:py-4">
         <div className="flex w-full flex-1 flex-col items-center justify-center text-center">
           <span className="mb-6 inline-flex items-center rounded-full border border-brand-pistachio/80 bg-brand-ink/85 px-4 py-2.5 text-center text-[11px] font-bold uppercase tracking-[0.14em] text-brand-pistachio shadow-[0_8px_24px_rgba(16,18,15,0.35)] backdrop-blur-sm sm:mb-4 sm:px-5 sm:py-2.5 sm:text-xs">
-            Agence immobilière nouvelle génération · Maroc
+            Agence immobilière nouvelle génération · Casablanca
           </span>
 
           <h1 className="max-w-4xl text-balance font-sans text-2xl font-extrabold uppercase leading-[1.02] tracking-[0.01em] text-white sm:text-4xl sm:leading-[0.98] sm:tracking-[0.02em] lg:text-5xl xl:text-6xl">
-            Propriétaires,
+            Propriétaires à Casablanca,
             <br />
             pourquoi encore
             <br />

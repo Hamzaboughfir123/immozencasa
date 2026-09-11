@@ -58,7 +58,7 @@ export function BenefitsSection() {
 
       <Container className="relative">
         <SectionHeading
-          eyebrow="Propriétaires au Maroc"
+          eyebrow="Propriétaires à Casablanca"
           title={
             <>
               Votre bien mérite

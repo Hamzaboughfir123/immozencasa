@@ -1,5 +1,12 @@
 import { Container } from "@/components/ui/Container";
-import { CONTACT, NAV_LINKS, SITE_NAME, SOCIAL_LINKS } from "@/lib/constants";
+import {
+  CONTACT,
+  GROUPE_URL,
+  NAV_LINKS,
+  NETWORK_SITES,
+  SITE_NAME,
+  SOCIAL_LINKS,
+} from "@/lib/constants";
 
 export function Footer() {
   const year = new Date().getFullYear();
@@ -9,7 +16,9 @@ export function Footer() {
       <Container className="grid gap-12 py-16 lg:grid-cols-[1.3fr_1fr_1fr_1fr]">
         <div className="flex flex-col gap-4">
           <p className="font-display text-2xl font-semibold text-white">
-            {SITE_NAME}
+            <a href={GROUPE_URL} className="hover:text-brand-pistachio">
+              {SITE_NAME}
+            </a>
           </p>
           <p className="max-w-xs text-sm leading-relaxed text-white/60">
             Agence immobilière nouvelle génération à Casablanca. IA, digital
@@ -93,11 +102,35 @@ export function Footer() {
       </Container>
 
       <div className="border-t border-white/10">
-        <Container className="flex flex-col gap-2 py-6 text-xs text-white/40 sm:flex-row sm:items-center sm:justify-between">
-          <p>
-            © {year} {SITE_NAME}. Tous droits réservés.
+        <Container className="flex flex-col gap-3 py-6 text-xs text-white/40">
+          <div className="flex flex-col flex-wrap items-start gap-x-2 gap-y-1.5 sm:flex-row sm:items-center">
+            <span className="font-semibold uppercase tracking-[0.1em] text-white/40">
+              ImmoZen au Maroc :
+            </span>
+            <ul className="flex flex-wrap items-center gap-x-4 gap-y-1.5">
+              {NETWORK_SITES.map((site) => (
+                <li key={site.href}>
+                  <a href={site.href} className="text-white/60 hover:text-brand-pistachio">
+                    {site.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="text-white/40">
+            <a href={GROUPE_URL} className="text-white/60 hover:text-brand-pistachio">
+              ImmoZen Groupe
+            </a>{" "}
+            — Réseau immobilier du groupe ImmoZen.
           </p>
-          <p>Fait avec soin au Maroc.</p>
+
+          <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              © {year} {SITE_NAME}. Tous droits réservés.
+            </p>
+            <p>Fait avec soin au Maroc.</p>
+          </div>
         </Container>
       </div>
     </footer>

@@ -98,8 +98,20 @@ export function PropertyLeadForm({ onSuccess }: { onSuccess?: () => void }) {
         return;
       }
 
-      throw new Error("request_failed");
-    } catch {
+      // 5xx ou statut inattendu : on logue le détail (invisible pour
+      // l'utilisateur, mais consultable dans la console navigateur) avant de
+      // basculer sur le message générique — sans ça, impossible de savoir si
+      // c'est le serveur qui plante ou autre chose.
+      const bodyText = await res.text().catch(() => "");
+      console.error("[PropertyLeadForm] Réponse serveur en échec", res.status, bodyText);
+      throw new Error(`server_error_${res.status}`);
+    } catch (err) {
+      // Une exception ici (avant même d'obtenir une réponse) vient presque
+      // toujours d'un `fetch` qui n'a pas abouti : CORS, DNS, coupure
+      // réseau, ou un bloqueur de pub/extension qui empêche l'appel vers
+      // api.immozengroupe.com. Le message navigateur (ex: "Failed to
+      // fetch") apparaît dans la console pour diagnostiquer précisément.
+      console.error("[PropertyLeadForm] Échec de l'envoi du formulaire", err);
       setStatus("error");
       setErrorMessage(
         "Une erreur est survenue. Réessayez dans un instant ou contactez-nous directement par téléphone.",

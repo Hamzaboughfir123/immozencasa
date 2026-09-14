@@ -3,8 +3,8 @@ import type { PropertyLeadFormValues } from "./types";
 /**
  * Normalise un numéro marocain vers +2126XXXXXXXX / +2127XXXXXXXX.
  * Retourne `null` si invalide. Même logique que le backend
- * (winwin-backend/src/common/phone.ts) — le backend revalide de toute façon,
- * ce n'est jamais qu'une aide de saisie côté client.
+ * (immozen-leads-backend/src/common/phone.ts) — le backend revalide de toute
+ * façon, ce n'est jamais qu'une aide de saisie côté client.
  */
 export function normalizeMoroccanPhone(raw: string): string | null {
   const digits = raw.replace(/[\s.-]/g, "");

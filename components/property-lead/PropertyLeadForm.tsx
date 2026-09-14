@@ -72,16 +72,37 @@ export function PropertyLeadForm({ onSuccess }: { onSuccess?: () => void }) {
         body: JSON.stringify(payload),
       });
 
-      if (!res.ok) {
-        throw new Error("request_failed");
+      if (res.ok) {
+        setStatus("success");
+        onSuccess?.();
+        return;
       }
 
-      setStatus("success");
-      onSuccess?.();
+      // Réponses non-2xx : messages différenciés plutôt qu'un message
+      // générique unique, pour que l'utilisateur (et nous) sachions si
+      // c'est une limite de fréquence, une donnée invalide ou une vraie
+      // panne serveur.
+      if (res.status === 429) {
+        setStatus("error");
+        setErrorMessage(
+          "Trop de demandes envoyées en peu de temps. Merci de patienter une minute avant de réessayer, ou contactez-nous directement par téléphone/WhatsApp.",
+        );
+        return;
+      }
+
+      if (res.status >= 400 && res.status < 500) {
+        setStatus("error");
+        setErrorMessage(
+          "Votre demande n'a pas pu être envoyée : merci de vérifier les informations saisies (notamment le numéro de téléphone), ou contactez-nous directement par téléphone.",
+        );
+        return;
+      }
+
+      throw new Error("request_failed");
     } catch {
       setStatus("error");
       setErrorMessage(
-        "Une erreur est survenue. Réessayez ou contactez-nous directement par téléphone.",
+        "Une erreur est survenue. Réessayez dans un instant ou contactez-nous directement par téléphone.",
       );
     }
   }

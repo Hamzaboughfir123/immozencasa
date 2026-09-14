@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
+import { openPropertyLeadModal } from "@/components/property-lead/lead-modal-events";
 import { CONTACT, NAV_LINKS, SITE_NAME } from "@/lib/constants";
 import Image from "next/image";
 import { useEffect, useState } from "react";
@@ -62,7 +63,7 @@ export function Navbar() {
             <PhoneIcon />
             {CONTACT.phone}
           </a>
-          <Button href="#confier-mon-bien" size="md">
+          <Button onClick={() => openPropertyLeadModal()} size="md">
             Confier mon bien
           </Button>
         </div>
@@ -128,7 +129,13 @@ export function Navbar() {
             <PhoneIcon />
             {CONTACT.phone}
           </a>
-          <Button href="#confier-mon-bien" className="mt-4 w-full" onClick={() => setOpen(false)}>
+          <Button
+            className="mt-4 w-full"
+            onClick={() => {
+              setOpen(false);
+              openPropertyLeadModal();
+            }}
+          >
             Confier mon bien
           </Button>
         </div>

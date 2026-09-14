@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/Button";
+import { OpenPropertyLeadButton } from "@/components/property-lead/OpenPropertyLeadButton";
 import { Reveal } from "@/components/ui/Reveal";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -127,14 +127,13 @@ export function BenefitsSection() {
           </div>
 
           <Reveal delay={320}>
-            <Button
-              href="#confier-mon-bien"
+            <OpenPropertyLeadButton
               size="lg"
               className="w-full px-6 sm:w-auto sm:px-10"
             >
               Je confie mon bien à ImmoZen Groupe
               <ArrowIcon />
-            </Button>
+            </OpenPropertyLeadButton>
           </Reveal>
         </div>
       </Container>

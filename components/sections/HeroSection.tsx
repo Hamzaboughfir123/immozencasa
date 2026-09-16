@@ -23,7 +23,7 @@ export function HeroSection() {
             Agence immobilière nouvelle génération · Casablanca
           </span>
 
-          <h1 className="max-w-4xl text-balance font-sans text-2xl font-extrabold uppercase leading-[1.02] tracking-[0.01em] text-white sm:text-4xl sm:leading-[0.98] sm:tracking-[0.02em] lg:text-5xl xl:text-6xl">
+          <h1 className="max-w-4xl text-balance font-sans text-[20px] font-extrabold uppercase leading-[1.02] tracking-[0.01em] text-white sm:text-[30px] sm:leading-[0.98] sm:tracking-[0.02em] lg:text-[40px] xl:text-[52px]">
             Propriétaires à Casablanca,
             <br />
             pourquoi encore

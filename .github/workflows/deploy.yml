@@ -56,4 +56,4 @@ jobs:
             pm2 restart immozen-casablanca
             pm2 save
 
-            echo "✅ Déploiement terminé !"
+            echo "✅ Deploiement terminé !"

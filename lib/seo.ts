@@ -40,6 +40,12 @@ export function buildMetadata(overrides: Partial<Metadata> = {}): Metadata {
     alternates: {
       canonical: SITE_URL,
     },
+    verification: {
+      // Vérification de propriété Google Search Console (préfixe d'URL
+      // https://www.immozencasablanca.com). Ne jamais retirer cette balise
+      // sous peine de perdre le statut de propriétaire confirmé.
+      google: "oNgtiS2MzK5aE5K_DWf7HhhoNznxOIIgpsle9kd_DG8",
+    },
     openGraph: {
       type: "website",
       locale: "fr_MA",

@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import { CONTACT, SITE_NAME, SITE_URL, SOCIAL_LINKS } from "@/lib/constants";
 
 export const DEFAULT_TITLE =
-  "ImmoZen Groupe Casablanca | 0 DH de commission propriétaire pour vendre ou louer";
+  "ImmoZen Groupe Casablanca | Agence immobilière — 0 DH de commission propriétaire";
 
 export const DEFAULT_DESCRIPTION =
-  "ImmoZen Groupe accompagne les propriétaires à Casablanca pour vendre ou louer appartement, villa, maison, terrain ou commerce — 0 DH de commission propriétaire, selon conditions applicables.";
+  "ImmoZen Groupe, agence immobilière à Casablanca (Casa), accompagne les propriétaires pour vendre ou louer appartement, villa, maison, terrain ou commerce — 0 DH de commission propriétaire, selon conditions applicables.";
 
 export function buildMetadata(overrides: Partial<Metadata> = {}): Metadata {
   return {
@@ -18,13 +18,22 @@ export function buildMetadata(overrides: Partial<Metadata> = {}): Metadata {
     keywords: [
       "agence immobilière Casablanca",
       "agence immobilière Casablanca propriétaire",
+      "agence immo Casablanca",
+      "immobilier Casablanca",
+      "immozen casa",
+      "immo casa Casablanca",
       "vendre appartement Casablanca",
       "vendre villa Casablanca",
       "vendre maison Casablanca",
       "vendre bien immobilier Casablanca",
+      "vendre terrain Casablanca",
+      "vendre local commercial Casablanca",
+      "vendre sans commission Casablanca",
       "louer appartement Casablanca",
+      "louer villa Casablanca",
       "louer son bien à Casablanca",
       "confier bien immobilier Casablanca",
+      "estimation bien immobilier Casablanca",
       "agence immobilière sans commission propriétaire Casablanca",
       "0 DH commission propriétaire Casablanca",
     ],

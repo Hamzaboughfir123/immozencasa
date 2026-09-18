@@ -21,8 +21,8 @@ export function Footer() {
             </a>
           </p>
           <p className="max-w-xs text-sm leading-relaxed text-white/60">
-            Agence immobilière nouvelle génération à Casablanca. IA, digital
-            et accompagnement humain au service de votre patrimoine.
+            Agence immobilière nouvelle génération à Casablanca (Casa). IA,
+            digital et accompagnement humain au service de votre patrimoine.
           </p>
           <ul className="mt-2 flex gap-4 text-sm">
             {SOCIAL_LINKS.map((social) => (

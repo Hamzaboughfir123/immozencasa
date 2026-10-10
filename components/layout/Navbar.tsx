@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
 import { openPropertyLeadModal } from "@/components/property-lead/lead-modal-events";
 import { CONTACT, NAV_LINKS, SITE_NAME } from "@/lib/constants";
 import Image from "next/image";
@@ -19,67 +18,78 @@ export function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (!open) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const dismiss = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setOpen(false);
+    };
+    const onResize = () => {
+      if (window.innerWidth >= 1280) setOpen(false);
+    };
+    window.addEventListener("keydown", dismiss);
+    window.addEventListener("resize", onResize);
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", dismiss);
+      window.removeEventListener("resize", onResize);
     };
   }, [open]);
 
   return (
     <header
-      className={`sticky top-0 z-50 w-full bg-white transition-all duration-300 ${
-        scrolled ? "shadow-[0_1px_0_0_rgba(16,18,15,0.06)]" : ""
-      }`}
+      className={`site-navbar ${scrolled ? "site-navbar--scrolled" : ""}`}
     >
-      <Container className="flex h-20 items-center justify-between">
-        <a href="#accueil" className="flex shrink-0 items-center" aria-label={SITE_NAME}>
+      <div className="site-navbar__bar">
+        <a href="#accueil" onClick={() => setOpen(false)} className="site-navbar__logo" aria-label={SITE_NAME}>
           <Image
-            src="/images/logo.png"
+            src="/images/logo-transparent.png"
             alt={SITE_NAME}
-            width={175}
-            height={60}
-            className="h-11 w-auto rounded-lg lg:h-10"
+            width={242}
+            height={83}
+            className="site-navbar__logo-image"
           />
         </a>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Navigation principale">
+        <nav className="site-navbar__links" aria-label="Navigation principale">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-brand-ink/75 transition-colors hover:text-brand-forest"
+              className="site-navbar__link"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="site-navbar__actions">
           <a
             href={CONTACT.phoneHref}
-            className="hidden items-center gap-2 whitespace-nowrap text-sm font-semibold text-brand-forest transition-colors hover:text-brand-forest-dark xl:inline-flex"
-            aria-label={`Appeler ImmoZen Groupe au ${CONTACT.phone}`}
+            className="site-navbar__phone"
+            aria-label={`Appeler ImmoZen Groupe au ${CONTACT.phoneRaw}`}
           >
             <PhoneIcon />
-            {CONTACT.phone}
+            {CONTACT.phoneRaw}
           </a>
-          <Button onClick={() => openPropertyLeadModal()} size="md">
+          <Button className="site-navbar__cta" onClick={() => openPropertyLeadModal()} size="md">
             Confier mon bien
           </Button>
         </div>
 
         <a
           href={CONTACT.phoneHref}
-          className="inline-flex min-h-10 items-center whitespace-nowrap text-xs font-semibold text-brand-forest transition-colors hover:text-brand-forest-dark sm:text-sm lg:hidden"
-          aria-label={`Appeler ImmoZen Groupe au ${CONTACT.phone}`}
+          className="site-navbar__mobile-phone"
+          aria-label={`Appeler ImmoZen Groupe au ${CONTACT.phoneRaw}`}
         >
-          {CONTACT.phone}
+          <PhoneIcon />
+          <span>{CONTACT.phoneRaw}</span>
         </a>
 
         <button
           type="button"
           onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-brand-ink lg:hidden"
+          className="site-navbar__toggle"
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
@@ -102,12 +112,12 @@ export function Navbar() {
             )}
           </svg>
         </button>
-      </Container>
+      </div>
 
       {open ? (
         <div
           id="mobile-nav"
-          className="border-t border-brand-ink/10 bg-white px-6 pb-8 pt-4 lg:hidden"
+          className="site-navbar__mobile-menu"
         >
           <nav className="flex flex-col gap-1" aria-label="Navigation mobile">
             {NAV_LINKS.map((link) => (
@@ -127,10 +137,10 @@ export function Navbar() {
             className="mt-4 flex items-center justify-center gap-2 rounded-full border border-brand-forest/25 px-5 py-3 text-sm font-semibold text-brand-forest"
           >
             <PhoneIcon />
-            {CONTACT.phone}
+            {CONTACT.phoneRaw}
           </a>
           <Button
-            className="mt-4 w-full"
+            className="site-navbar__cta mt-4 w-full"
             onClick={() => {
               setOpen(false);
               openPropertyLeadModal();

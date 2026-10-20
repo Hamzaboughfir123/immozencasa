@@ -71,5 +71,5 @@ export const PROPERTY_LEAD_CONFIG = {
   siteDomain:
     process.env.NEXT_PUBLIC_SITE_DOMAIN ?? SITE_URL.replace(/^https?:\/\/(www\.)?/, ""),
   /** URL de l'API centrale immozen-leads-backend (identique pour les 5 sites). */
-  apiUrl: process.env.NEXT_PUBLIC_API_URL ?? "https://api.immozengroupe.com",
+  apiUrl: process.env.NEXT_PUBLIC_API_URL ?? "https://api-leads.immozengroupe.com",
 };

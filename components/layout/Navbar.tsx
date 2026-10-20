@@ -65,12 +65,12 @@ export function Navbar() {
 
         <div className="site-navbar__actions">
           <a
-            href={CONTACT.phoneHref}
+            href={CONTACT.whatsappHref}
             className="site-navbar__phone"
-            aria-label={`Appeler ImmoZen Groupe au ${CONTACT.phoneRaw}`}
+            aria-label="Contacter ImmoZen Groupe sur WhatsApp"
           >
-            <PhoneIcon />
-            {CONTACT.phoneRaw}
+            <WhatsAppIcon />
+            <span>{CONTACT.phoneRaw}</span>
           </a>
           <Button className="site-navbar__cta" onClick={() => openPropertyLeadModal()} size="md">
             Confier mon bien
@@ -78,11 +78,11 @@ export function Navbar() {
         </div>
 
         <a
-          href={CONTACT.phoneHref}
+          href={CONTACT.whatsappHref}
           className="site-navbar__mobile-phone"
-          aria-label={`Appeler ImmoZen Groupe au ${CONTACT.phoneRaw}`}
+          aria-label="Contacter ImmoZen Groupe sur WhatsApp"
         >
-          <PhoneIcon />
+          <WhatsAppIcon />
           <span>{CONTACT.phoneRaw}</span>
         </a>
 
@@ -132,12 +132,12 @@ export function Navbar() {
             ))}
           </nav>
           <a
-            href={CONTACT.phoneHref}
+            href={CONTACT.whatsappHref}
             onClick={() => setOpen(false)}
             className="mt-4 flex items-center justify-center gap-2 rounded-full border border-brand-forest/25 px-5 py-3 text-sm font-semibold text-brand-forest"
           >
-            <PhoneIcon />
-            {CONTACT.phoneRaw}
+            <WhatsAppIcon />
+            WhatsApp
           </a>
           <Button
             className="site-navbar__cta mt-4 w-full"
@@ -154,16 +154,12 @@ export function Navbar() {
   );
 }
 
-function PhoneIcon() {
+function WhatsAppIcon() {
   return (
-    <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="M6.6 3h3l1.5 4.2-2 1.7a15.5 15.5 0 006 6l1.7-2L21 14.4v3c0 2-1.6 3.6-3.6 3.6C9.4 21 3 14.6 3 6.6 3 4.6 4.6 3 6.6 3z"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M17.5 14.4c-.3-.1-1.6-.8-1.9-.9-.2-.1-.4-.1-.6.1-.2.3-.7.9-.8 1-.2.2-.3.2-.5.1-1.5-.7-2.5-1.3-3.5-3-.3-.5.3-.4.8-1.4.1-.2 0-.4 0-.5C11 9.6 10.6 8.5 10.4 8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9 1-.9 2.3 0 1.3 1 2.6 1.1 2.8.1.2 2 3 4.8 4.2.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.6-.7 1.9-1.3.2-.6.2-1.1.2-1.3-.1-.1-.3-.2-.6-.3z" />
+      <path d="M12 2C6.5 2 2 6.5 2 12c0 1.9.5 3.6 1.4 5.1L2 22l5-1.3c1.5.8 3.2 1.3 5 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.3c-1.6 0-3.1-.4-4.4-1.2l-.3-.2-3 .8.8-2.9-.2-.3C4.2 15.1 3.7 13.6 3.7 12c0-4.6 3.7-8.3 8.3-8.3s8.3 3.7 8.3 8.3-3.7 8.3-8.3 8.3z" />
     </svg>
   );
 }
+
